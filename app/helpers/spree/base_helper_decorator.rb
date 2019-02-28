@@ -33,7 +33,7 @@ Spree::BaseHelper.class_eval do
   end
 
   def sale_calculators
-    calculators = Spree::SalesConfiguration::Config.calculators.map do |calculator|
+    calculators = [Spree::Calculator::AmountSalePriceCalculator, Spree::Calculator::PercentOffSalePriceCalculator].map do |calculator|
       [calculator.title, calculator.name]
     end
 
